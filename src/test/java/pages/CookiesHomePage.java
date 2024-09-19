@@ -31,7 +31,7 @@ public class CookiesHomePage {
 
 
     public void cookieForHomePage() {
-        new CommonNeeds(driver).clickElement(cookieHome);
+        new CommonNeeds(driver).clickJSElement(cookieHome);
         LoggerUtility.info("The user closes the cookies - that means they exist.");
     }
 }

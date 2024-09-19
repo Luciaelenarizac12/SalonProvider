@@ -72,15 +72,21 @@ public class AddItemsfromMakeupSection extends BasePage {
     @FindBy(xpath = "//p[normalize-space()='STICK FOND DE TEN ULTRA HD']")
     private WebElement nameOfTheProduct;
 
+    @FindBy(xpath = "//button[@aria-label='Close dialog'][1]")
+    private WebElement svgElement;
 
-    public void searchMyProduct() {
-        commonNeeds.clickElement(searchElement);
+
+    public void searchMyProduct(RemoveSVGElements removeSVGElements) {
+        removeSVGElements.removeAllSVGAds();
+        commonNeeds.clickJSElement(searchElement);
         LoggerUtility.info("The user accesses the search Button.");
         commonNeeds.waitForElementVisibile(extendedSearchElement);
         LoggerUtility.info("The user is waiting for the element to become visible.");
         commonNeeds.fillElement(extendedSearchElement, "fond de ten");
         LoggerUtility.info("The user accesses the search bar, enters the search term 'fond de ten,' and presses Enter.");
         extendedSearchElement.submit();
+        commonNeeds.waitForElementVisibile(svgElement);
+        commonNeeds.clickJSElement(svgElement);
         LoggerUtility.info("The user has been redirected to the searched product");
         commonNeeds.scrollPage(0,150);
         commonNeeds.clickJSElement(checkMakeUpForeverBrandElement);
@@ -102,17 +108,17 @@ public class AddItemsfromMakeupSection extends BasePage {
         commonNeeds.scrollPage(0,200);
         commonNeeds.waitForElementVisibile(stickFondDeTenElement);
         LoggerUtility.info("The user is waiting for the element to become visible.");
-        commonNeeds.clickElement(stickFondDeTenElement);
+        commonNeeds.clickJSElement(stickFondDeTenElement);
         LoggerUtility.info("The user selects the product 'STICK FOND DE TEN ULTRA HD'.");
         commonNeeds.waitForElementVisibile(addProductToCart);
         LoggerUtility.info("The user is waiting for the element to become visible.");
-        commonNeeds.clickElement(addProductToCart);
+        commonNeeds.clickJSElement(addProductToCart);
         LoggerUtility.info("The user adds the product to the cart.");
 
     }
 
     public void validateExistanceOfProductIntheCart() {
-        // Așteaptam și verificam daca elementul cartElement este vizibil
+        // Așteaptam si verificam daca elementul cartElement este vizibil
         commonNeeds.waitForElementVisibile(cartElement);
         LoggerUtility.info("The user is waiting for the element to become visible.");
         commonNeeds.clickJSElement(cartElement);
@@ -121,7 +127,7 @@ public class AddItemsfromMakeupSection extends BasePage {
         // verificam daca elementul checkProductElement este vizibil
         commonNeeds.waitForElementVisibile(checkProductElement);
         LoggerUtility.info("The user is waiting for the element to become visible.");
-        checkProductElement.click();
+        commonNeeds.clickJSElement(checkProductElement);
         LoggerUtility.info("The user can see that there is 1 product and clicks on it.");
 
         // ne asiguram ca elementul STICK FOND DE TEN ULTRA HD este adaugat in cos, validam dupa prezenta numelui

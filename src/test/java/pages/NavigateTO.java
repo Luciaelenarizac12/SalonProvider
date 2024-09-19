@@ -12,12 +12,12 @@ public class NavigateTO extends BasePage {
         super(driver);
     }
 
-    @FindBy(xpath = "(//img[@src='/assets/images/newicons/contul-meu-png.png'])[1]")
+    @FindBy(xpath = "//img[@src='/assets/images/newicons/contul-meu-png.png']")
     private WebElement loginElement;
 
 
     public void navigateToLoginPage(){
-        commonNeeds.clickElement(loginElement);
+        commonNeeds.clickJSElement(loginElement);
         LoggerUtility.info("The user accesses the login page.");
 
     }

@@ -21,7 +21,7 @@ public class LeaveAReview extends BasePage{
     @FindBy(xpath = "//a[normalize-space()='Mascara TRIPLE THREAT']")
     private WebElement rimmelElement;
 
-    @FindBy(xpath = "//div[@data-testid='POPUP']//button[@aria-label='Close dialog']") //nu e finalizat xpath ul
+    @FindBy(xpath = "//button[@aria-label='Close dialog'][1]")
     private WebElement svgElement;
 
     @FindBy(xpath = "//span[@id='header-tab-recenzii']")
@@ -51,7 +51,7 @@ public class LeaveAReview extends BasePage{
 
 
     public void searchForARimmel(RemoveSVGElements removeSVGElements){
-        commonNeeds.clickElement(searchElement);
+        commonNeeds.clickJSElement(searchElement);
         LoggerUtility.info("The user accesses the search Button.");
         commonNeeds.waitForElementVisibile(extendedSearchElement);
         LoggerUtility.info("The user is waiting for the element to become visible.");
@@ -64,6 +64,8 @@ public class LeaveAReview extends BasePage{
         commonNeeds.clickJSElement(rimmelElement);
         LoggerUtility.info("The user then clicked on the product.");
         removeSVGElements.removeAllSVGAds();
+        commonNeeds.waitForElementVisibile(svgElement);
+        commonNeeds.clickJSElement(svgElement);
     }
 
     public void accessReview(){
@@ -76,7 +78,7 @@ public class LeaveAReview extends BasePage{
     }
     public void submitReviewForm(String firstName, String lastName, String email, String reviewText) {
 
-        commonNeeds.scrollPage(0,100);
+        commonNeeds.scrollPage(0,50);
         commonNeeds.fillElement(reviewerFirstName, firstName);
         LoggerUtility.info("Entered reviewer first name: " + firstName);
 
@@ -92,15 +94,6 @@ public class LeaveAReview extends BasePage{
         commonNeeds.fillElement(textReview, reviewText);
         LoggerUtility.info("Entered review text: " + reviewText);
 
-//        commonNeeds.clickJSElement(submitReview);
-//        LoggerUtility.info("Submitted the review form.");
     }
-
-    //  //div[@class='errors success']
-    // o mica validare ca a fost trimis review ul
-
-
-
-
 
 }

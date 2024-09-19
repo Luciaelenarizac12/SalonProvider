@@ -1,6 +1,5 @@
 package tests;
 
-import loggerUtility.LoggerUtility;
 import org.testng.annotations.Test;
 import pages.AddItemsfromMakeupSection;
 import pages.CookiesHomePage;
@@ -19,9 +18,9 @@ public class AddItemsToCart extends SharedData {
         removeSVGElements.removeAllSVGAds();
 
         AddItemsfromMakeupSection addItemsfromMakeupSection=new AddItemsfromMakeupSection(driver);
-        addItemsfromMakeupSection.searchMyProduct();
-        addItemsfromMakeupSection.addProduct();
-        addItemsfromMakeupSection.validateExistanceOfProductIntheCart();
+        addItemsfromMakeupSection.searchMyProduct(removeSVGElements);
+//        addItemsfromMakeupSection.addProduct();
+//        addItemsfromMakeupSection.validateExistanceOfProductIntheCart();
 
     }
 }

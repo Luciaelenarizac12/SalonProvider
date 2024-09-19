@@ -48,7 +48,7 @@ public class LogInPage extends BasePage {
         LoggerUtility.info("The user has entered their email address.");
         commonNeeds.fillElement(passwordElement, testData.getPasswordValue());
         LoggerUtility.info("The user has entered their password.");
-        commonNeeds.clickElement(logInElement);
+        commonNeeds.clickJSElement(logInElement);
         LoggerUtility.info("The user clicked on the login button.-->The user successfully logged into the Salon Provider platform.");
 
     }
