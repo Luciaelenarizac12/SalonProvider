@@ -19,8 +19,8 @@ public class AddItemsToCart extends SharedData {
 
         AddItemsfromMakeupSection addItemsfromMakeupSection=new AddItemsfromMakeupSection(driver);
         addItemsfromMakeupSection.searchMyProduct(removeSVGElements);
-//        addItemsfromMakeupSection.addProduct();
-//        addItemsfromMakeupSection.validateExistanceOfProductIntheCart();
+        addItemsfromMakeupSection.addProduct();
+        addItemsfromMakeupSection.validateExistanceOfProductIntheCart();
 
     }
 }

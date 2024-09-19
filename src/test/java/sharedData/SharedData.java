@@ -33,12 +33,12 @@ public class SharedData {
         LoggerUtility.info("The browser has opened successfully!");
     }
 
-//    @AfterMethod
-//    public void clearEnvironment(ITestResult result) {
-//        if (!result.isSuccess()) {
-//            LoggerUtility.info(result.getThrowable().getMessage());
-//        }
-//        driver.quit();
-//        LoggerUtility.info("The browser was closed successfully!");
-//    }
+    @AfterMethod
+    public void clearEnvironment(ITestResult result) {
+        if (!result.isSuccess()) {
+            LoggerUtility.info(result.getThrowable().getMessage());
+        }
+        driver.quit();
+        LoggerUtility.info("The browser was closed successfully!");
+    }
 }
