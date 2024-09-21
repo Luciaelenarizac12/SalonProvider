@@ -4,7 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 import objectData.LogInPageObject;
 import objectData.ValidareProfil;
 import org.testng.annotations.Test;
-import pages.CookiesHomePage;
+//import pages.CookiesHomePage;
+import pages.CookiesPage;
 import pages.LogInPage;
 import pages.NavigateTO;
 import pages.RemoveSVGElements;
@@ -18,8 +19,8 @@ public class LoginTest extends SharedData {
     public void testMethod() {
         LogInPageObject testData = new LogInPageObject("src/test/resources/testData/LogInPageData.json");
 
-        CookiesHomePage cookiesHomePage = CookiesHomePage.getInstance(driver);
-        cookiesHomePage.cookieForHomePage();
+        CookiesPage cookiesPage = new CookiesPage(getDriver());
+        cookiesPage.closeCookies();
 
         RemoveSVGElements removeSVGElements = new RemoveSVGElements(getDriver());
         removeSVGElements.removeAllSVGAds();
